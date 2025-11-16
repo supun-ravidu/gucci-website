@@ -11,7 +11,9 @@
 
 *A cinematic, scroll-driven single-page experience celebrating 100+ years of Gucci's legacy*
 
-[Live Demo](#) • [Features](#-features) • [Tech Stack](#-tech-stack) • [Getting Started](#-getting-started)
+**🌐 Live Site:** [https://gucci-website.netlify.app/](https://gucci-website.netlify.app/)
+
+[Features](#-features) • [Tech Stack](#-tech-stack) • [Getting Started](#-getting-started) • [Deploy](#-deployment)
 
 ---
 
@@ -299,24 +301,51 @@ Follow the pattern:
 
 ## 🚀 Deployment
 
-### Deploy to Vercel (Recommended)
+### 🌐 Live on Netlify
+**Current Deployment:** [https://gucci-website.netlify.app/](https://gucci-website.netlify.app/)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/your-site-id/deploy-status)](https://app.netlify.com/sites/gucci-website/deploys)
+
+### Deploy to Netlify
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/supun-ravidu/gucci-website)
+
+**Quick Steps:**
+1. Click the "Deploy to Netlify" button above
+2. Connect your GitHub account
+3. Netlify auto-configures using `netlify.toml`
+4. Site deploys in ~2-3 minutes! 🎉
+
+**Manual Netlify Setup:**
+1. Push code to GitHub
+2. Log in to [Netlify](https://app.netlify.com/)
+3. Click "Add new site" → "Import an existing project"
+4. Select your GitHub repository
+5. Build settings auto-detected from `netlify.toml`:
+   - **Build command:** `npm run build`
+   - **Publish directory:** `.next`
+6. Deploy! Updates push automatically on git commits
+
+### Alternative: Deploy to Vercel
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/supun-ravidu/gucci-website)
 
+**Quick Steps:**
 1. Push to GitHub
 2. Import project in [Vercel](https://vercel.com)
-3. Vercel auto-detects Next.js and configures build
-4. Deploy! 🎉
+3. Vercel auto-detects Next.js configuration
+4. Deploy in seconds! ⚡
 
 ### Environment Variables
-No environment variables needed for basic deployment.
+No environment variables required for deployment.
 
 ### Build Configuration
-```json
-{
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next",
-  "installCommand": "npm install"
-}
+The `netlify.toml` file handles all configuration:
+```toml
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 ```
 
 ---
